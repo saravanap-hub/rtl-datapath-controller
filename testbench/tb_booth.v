@@ -13,7 +13,7 @@ initial
 begin
     clk = 0;
     #1 start = 1;
-    #1000 $finish;
+    #500 $finish;
 end
 
 always #5 clk = ~clk;
@@ -26,7 +26,7 @@ end
 
 initial
 begin
-    $monitor("clk=%b, data_in=%d,count=%d, %b,%b, done=%b", clk, data_in, b1.count,b1.A,b1.Q ,done);
+    $monitor("state=%d, data_in=%d,count=%d, %b,%b, done=%b", con.state, data_in, b1.count,b1.A,b1.Q ,done);
     $dumpfile("tb_booth.vcd"); 
     $dumpvars(0,tb_booth);
 end

@@ -21,7 +21,7 @@ shiftreg QR(Q,data_in,A[0],ldq,sftq,clrq,clk);
 
 alu al(Z,A,M,addsub);
 
-dff fq(Q[0],qm1,clk,clrff);
+dff fq(qm1,Q[0],clk,clrff);
 
 pipo mr(M,data_in,clk,ldm);
 

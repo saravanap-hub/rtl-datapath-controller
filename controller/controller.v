@@ -19,7 +19,7 @@ case(state)
  
  s1 : state <= s2;
  
- s2 : #5 if ({q0,qm1}==2'b01) state<=s3; 
+ s2 : if ({q0,qm1}==2'b01) state<=s3; 
   else if({q0,qm1}==2'b10) state<=s4;
   else state<=s5;
 
@@ -27,9 +27,10 @@ case(state)
  
  s4 : state<=s5;
  
- s5 : #5 if({q0,qm1}==2'b01 && !eqz) state <= s3;
+ s5 : if({q0,qm1}==2'b01 && !eqz) state <= s3;
  else if({q0,qm1}==2'b10 && !eqz) state<=s4;
  else if(eqz) state<=s6;
+ else state<=s5;
 
  s6 : state<=s6;
 
