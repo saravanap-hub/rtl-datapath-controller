@@ -1,0 +1,11 @@
+# Simulation output
+sim
+*.vcd
+*.out
+*.log
+
+# GTKWave
+*.gtkw
+
+# VS Code
+.vscode/
