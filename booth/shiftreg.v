@@ -1,9 +1,9 @@
 `timescale 1ns/1ps
 
-module shiftreg AR(data_out,data_in,s_in,Z,lda,stfa,clra,clk);
+module shiftreg(data_out,data_in,s_in,lda,sfta,clra,clk);
 
 input [31:0] data_in;
-input clk,lda,stfa,clra,s_in;
+input clk,lda,sfta,clra,s_in;
 
 output reg [31:0] data_out;
 
