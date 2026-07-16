@@ -20,8 +20,8 @@ always #5 clk = ~clk;
 
 initial
 begin
-    #2 data_in = 172;
-    #10 data_in = 15;
+    #2 data_in = -172;
+    #20 data_in = 172;
 end
 
 initial

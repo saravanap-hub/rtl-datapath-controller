@@ -55,9 +55,13 @@ case(state)
  
  s4 : begin lda=1; addsub=0; end
  
- s5 : begin sfta=1; sftq=1; decr=1; end
+ s5 : begin if({q0,qm1}==2'b00 && !eqz) begin sfta=1; sftq=1; decr=1;end 
+       else if({q0,qm1}==2'b11 && !eqz) begin sfta=1; sftq=1; decr=1;end
+       else begin sfta=0; sftq=0; decr=0; end
+    end
+
  
- s6 : done=1; decr=0; end
+ s6 : begin done=1; decr=0; end
  
  default : begin clra=0; sfta=0; ldq=0; sftq=0; end
 endcase
