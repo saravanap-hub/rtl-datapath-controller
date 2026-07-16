@@ -26,8 +26,18 @@ end
 
 initial
 begin
-    $monitor("state=%d, data_in=%d,count=%d, %b,%b, done=%b", con.state, data_in, b1.count,b1.A,b1.Q ,done);
-    $dumpfile("tb_booth.vcd"); 
+   $monitor(
+"t=%0t state=%0d q0=%b qm1=%b eqz=%b lda=%b sfta=%b addsub=%b count=%d",
+$time,
+con.state,
+b1.Q[0],
+b1.qm1,
+b1.eqz,
+lda,
+sfta,
+addsub,
+b1.count
+);
     $dumpvars(0,tb_booth);
 end
 endmodule

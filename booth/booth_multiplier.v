@@ -15,7 +15,7 @@ assign eqz= ~|count;
 
 
 
-shiftreg AR(A,Z,A[15],lda,sfta,clra,clk);
+shiftreg AR(A,Z,A[31],lda,sfta,clra,clk);
 
 shiftreg QR(Q,data_in,A[0],ldq,sftq,clrq,clk);
 
