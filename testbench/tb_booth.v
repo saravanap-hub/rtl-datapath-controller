@@ -20,23 +20,26 @@ always #5 clk = ~clk;
 
 initial
 begin
-    #7 data_in = 172;
+    #2 data_in = 172;
     #10 data_in = 15;
 end
 
 initial
 begin
    $monitor(
-"t=%0t state=%0d q0=%b qm1=%b eqz=%b lda=%b sfta=%b addsub=%b count=%d",
+"t=%0t state=%0d A=%b Q=%b q0=%b qm1=%b eqz=%b M=%b addsub=%b count=%d AQ = %h%h",
 $time,
 con.state,
+b1.A,
+b1.Q,
 b1.Q[0],
 b1.qm1,
 b1.eqz,
-lda,
-sfta,
-addsub,
-b1.count
+b1.M,
+b1.addsub,
+b1.count,
+b1.A,
+b1.Q
 );
     $dumpvars(0,tb_booth);
 end

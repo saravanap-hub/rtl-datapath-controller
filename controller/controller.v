@@ -40,15 +40,16 @@ endcase
 end
 
 always@(*)
-
 begin
+    clra=0; clrq=0; clrff=0; done=0; lda=0; ldq=0; sfta=0; sftq=0;addsub=0; ldm=0; decr=0; ldcnt=0;
+
 case(state)
  
- s0 : begin clra=0; clrq=0; clrff=0; done=0; lda=0; ldq=0; sfta=0; sftq=0;addsub=0; ldm=0; decr=0; ldcnt=0; end
+ s0 : begin clra=0; clrq=0; clrff=0; done=0; lda=0; ldq=0; sfta=0; sftq=0;addsub=0; ldm=1; decr=0; ldcnt=0; end
 
- s1 : begin ldm=1; clrff=1; clra=1; ldcnt=1; end
+ s1 : begin ldq=1; clrff=1; clra=1; ldcnt=1; end
 
- s2 : begin ldq=1; clra=0; clrff=0; ldcnt=0; ldm=0; end
+ s2 : begin clra=0; clrff=0; ldcnt=0; ldm=0; end
  
  s3 : begin lda=1; addsub=1; ldq=0; sfta=0; sftq=0; decr=0; end
  
@@ -56,7 +57,7 @@ case(state)
  
  s5 : begin sfta=1; sftq=1; decr=1; end
  
- s6 : done=1;
+ s6 : done=1; decr=0; end
  
  default : begin clra=0; sfta=0; ldq=0; sftq=0; end
 endcase
