@@ -41,6 +41,7 @@ b1.count,
 b1.A,
 b1.Q
 );
-    $dumpvars(0,tb_booth);
+    $dumpfile("tb_booth.vcd");
+    $dumpvars(0,tb_booth,b1,con);
 end
 endmodule
