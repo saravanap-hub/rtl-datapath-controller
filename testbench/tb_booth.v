@@ -16,12 +16,11 @@ begin
     #500 $finish;
 end
 
-always #5 clk = ~clk;
-
+always #5 clk = ~clk; // clock generation 10ns period
 initial
 begin
-    #2 data_in = -172;
-    #20 data_in = 172;
+    #2 data_in = -172; // input data_in 
+    #20 data_in = 172; // input data_in 
 end
 
 initial

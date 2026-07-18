@@ -1,3 +1,6 @@
+// 32 bit parallel in parallel out register module for M
+
+
 `timescale 1ns/1ps
 
 module pipo(data_out,data_in,clk,ldm);

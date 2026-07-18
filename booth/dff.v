@@ -1,3 +1,5 @@
+// Q flip-flop module for qm1
+
 `timescale 1ns/1ps
 
 module dff(q,d,clk,clrff);

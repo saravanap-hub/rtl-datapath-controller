@@ -1,3 +1,7 @@
+// 32 bit shift register module for A and Q
+
+
+
 `timescale 1ns/1ps
 
 module shiftreg(data_out,data_in,s_in,lda,sfta,clra,clk);
@@ -13,9 +17,9 @@ always@(posedge clk)
 begin
   if(clra) 
    data_out <= 0;
-  else if(lda) 
+  else if(lda) // if load signal is high then load the data_in to data_out
    data_out <= data_in;
-  else if(sfta)
+  else if(sfta) // if shift signal is high then shift 
    data_out <= {s_in,data_out[31:1]} ;
 end
 
