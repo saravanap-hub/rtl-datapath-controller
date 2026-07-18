@@ -16,18 +16,18 @@ After the add/subtract (or instead of it) the combined A:Q register is arithmeti
 **Project structure**
 
 booth/
-  booth_multiplier.v   - top-level datapath, wires everything together
-  pipo.v                - the multiplicand (M) register
-  shiftreg.v            - shared shift register used for both A and Q
-  dff.v                 - the single-bit Q-1 flip-flop
-  alu.v                 - adder/subtractor
-  counter.v             - iteration counter (counts down from 32)
-  
+├── booth_multiplier.v   top-level datapath, wires everything together
+├── pipo.v               the multiplicand (M) register
+├── shiftreg.v           shared shift register used for both A and Q
+├── dff.v                the single-bit Q-1 flip-flop
+├── alu.v                adder/subtractor
+└── counter.v            iteration counter (counts down from 32)
+
 controller/
-  controller.v          - the FSM that sequences everything
-  
+└── controller.v         the FSM that sequences everything
+
 testbench/
-  tb_booth.v            - testbench
+└── tb_booth.v           testbench
 
   **The controller moves through states s0 to s6**
 
