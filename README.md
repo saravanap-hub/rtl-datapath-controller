@@ -22,18 +22,29 @@ booth/
   dff.v                 - the single-bit Q-1 flip-flop
   alu.v                 - adder/subtractor
   counter.v             - iteration counter (counts down from 32)
+  
 controller/
   controller.v          - the FSM that sequences everything
+  
 testbench/
   tb_booth.v            - testbench
 
   **The controller moves through states s0 to s6**
 
 s0 - load the multiplicand M
+
 s1 - load the multiplier into Q, clear A and Q-1, load the counter with 32
+
 s2 - one-time initial decode (checks Q0, Q-1 right after loading)
+
 s3 / s4 - add / subtract
+
 s5- shift A and Q right, decrement the counter, and (for every iteration after the first) also do the next decode
+
 s6 - done
 
+
+**The datapath**
+
+'A' and 'Q' are built from the same `shiftreg` module, connected so that a right shift moves `A`'s sign bit into itself and `A`'s LSB into `Q`'s MSB — this is what keeps the whole thing behaving as one continuous 64-bit shifting register across the two 32-bit halves. `M` is a simple parallel-load register, and the ALU just does `A+M` or `A-M` depending on the current state
 
